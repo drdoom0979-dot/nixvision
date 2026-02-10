@@ -3,8 +3,8 @@ warning: virtual workspace defaulting to `resolver = "1"` despite one or more wo
   = note: to keep the current resolver, specify `workspace.resolver = "1"` in the workspace root's manifest
   = note: to use the edition 2024 resolver, specify `workspace.resolver = "3"` in the workspace root's manifest
   = note: for more details see https://doc.rust-lang.org/cargo/reference/resolver.html#resolver-versions
-   0.051859792s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint: fingerprint error for nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core)/Check { test: false }/TargetInner { name: "nixvision_core", doc: true, ..: with_path("/Users/macbookpro/Desktop/nixvision/nixvision_core/src/main.rs", Edition2024) }
-   0.051881375s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/nixvision_core-87eb26e55922b1ae/bin-nixvision_core`
+   0.070485250s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint: fingerprint error for nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core)/Check { test: false }/TargetInner { name: "nixvision_core", doc: true, ..: with_path("/Users/macbookpro/Desktop/nixvision/nixvision_core/src/main.rs", Edition2024) }
+   0.070509541s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/nixvision_core-87eb26e55922b1ae/bin-nixvision_core`
 
 Caused by:
     No such file or directory (os error 2)
@@ -28,8 +28,8 @@ Stack backtrace:
   15: std::rt::lang_start::<()>::{closure#0}
   16: std::rt::lang_start_internal
   17: _main
-   0.060655625s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="opencv"}: cargo::core::compiler::fingerprint: fingerprint error for opencv v0.92.3/Check { test: false }/TargetInner { doctest: false, ..: lib_target("opencv", ["lib"], "/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/src/lib.rs", Edition2021) }
-   0.060675709s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="opencv"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/opencv-84f512c7139f5005/lib-opencv`
+   0.088883250s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="opencv"}: cargo::core::compiler::fingerprint: fingerprint error for opencv v0.92.3/Check { test: false }/TargetInner { doctest: false, ..: lib_target("opencv", ["lib"], "/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/src/lib.rs", Edition2021) }
+   0.088908583s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="opencv"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/opencv-84f512c7139f5005/lib-opencv`
 
 Caused by:
     No such file or directory (os error 2)
@@ -54,8 +54,8 @@ Stack backtrace:
   16: std::rt::lang_start::<()>::{closure#0}
   17: std::rt::lang_start_internal
   18: _main
-   0.061076459s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="build-script-build"}: cargo::core::compiler::fingerprint: fingerprint error for opencv v0.92.3/RunCustomBuild/TargetInner { ..: custom_build_target("build-script-build", "/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build.rs", Edition2021) }
-   0.061083667s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="build-script-build"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/opencv-c93b61162bc2d70b/run-build-script-build-script-build`
+   0.089430375s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="build-script-build"}: cargo::core::compiler::fingerprint: fingerprint error for opencv v0.92.3/RunCustomBuild/TargetInner { ..: custom_build_target("build-script-build", "/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build.rs", Edition2021) }
+   0.089442333s  INFO prepare_target{force=false package_id=opencv v0.92.3 target="build-script-build"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/opencv-c93b61162bc2d70b/run-build-script-build-script-build`
 
 Caused by:
     No such file or directory (os error 2)
@@ -82,8 +82,8 @@ Stack backtrace:
   18: std::rt::lang_start::<()>::{closure#0}
   19: std::rt::lang_start_internal
   20: _main
-   0.062081959s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint: fingerprint error for nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core)/Check { test: true }/TargetInner { name: "nixvision_core", doc: true, ..: with_path("/Users/macbookpro/Desktop/nixvision/nixvision_core/src/main.rs", Edition2024) }
-   0.062089042s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/nixvision_core-f4b9642ea7131f6f/test-bin-nixvision_core`
+   0.092653500s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint: fingerprint error for nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core)/Check { test: true }/TargetInner { name: "nixvision_core", doc: true, ..: with_path("/Users/macbookpro/Desktop/nixvision/nixvision_core/src/main.rs", Edition2024) }
+   0.092661541s  INFO prepare_target{force=false package_id=nixvision_core v0.1.0 (/Users/macbookpro/Desktop/nixvision/nixvision_core) target="nixvision_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/macbookpro/Desktop/nixvision/target/debug/.fingerprint/nixvision_core-f4b9642ea7131f6f/test-bin-nixvision_core`
 
 Caused by:
     No such file or directory (os error 2)
@@ -114,6 +114,6 @@ note: To improve backtraces for build dependencies, set the CARGO_PROFILE_DEV_BU
 Caused by:
   process didn't exit successfully: `/Users/macbookpro/Desktop/nixvision/target/debug/build/opencv-aaa5e99d2ced95cc/build-script-build` (signal: 6, SIGABRT: process abort signal)
   --- stderr
-  dyld[7121]: Library not loaded: @rpath/libclang.dylib
+  dyld[9038]: Library not loaded: @rpath/libclang.dylib
     Referenced from: <D05ACEDC-9ED3-3E95-9E11-B627DD8DAB03> /Users/macbookpro/Desktop/nixvision/target/debug/build/opencv-aaa5e99d2ced95cc/build-script-build
     Reason: tried: '/Users/macbookpro/Desktop/nixvision/target/debug/deps/libclang.dylib' (no such file), '/Users/macbookpro/Desktop/nixvision/target/debug/libclang.dylib' (no such file), '/Users/macbookpro/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libclang.dylib' (no such file), '/Users/macbookpro/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libclang.dylib' (no such file), '/Users/macbookpro/lib/libclang.dylib' (no such file), '/usr/local/lib/libclang.dylib' (no such file), '/usr/lib/libclang.dylib' (no such file, not in dyld cache)
