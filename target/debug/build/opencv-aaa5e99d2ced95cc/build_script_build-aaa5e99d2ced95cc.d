@@ -1,0 +1,10 @@
+/Users/macbookpro/Desktop/nixvision/target/debug/build/opencv-aaa5e99d2ced95cc/build_script_build-aaa5e99d2ced95cc.d: /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/binding-generator.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/cmake_probe.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/docs.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/generator.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/library.rs
+
+/Users/macbookpro/Desktop/nixvision/target/debug/build/opencv-aaa5e99d2ced95cc/build_script_build-aaa5e99d2ced95cc: /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/binding-generator.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/cmake_probe.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/docs.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/generator.rs /Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/library.rs
+
+/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build.rs:
+/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/binding-generator.rs:
+/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/cmake_probe.rs:
+/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/docs.rs:
+/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/generator.rs:
+/Users/macbookpro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/opencv-0.92.3/build/library.rs:

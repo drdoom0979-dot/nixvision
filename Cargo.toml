@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "nixvision_core",
+    "nixvision_lib",
+]

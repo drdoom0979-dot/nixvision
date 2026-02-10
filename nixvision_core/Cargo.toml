@@ -1,0 +1,9 @@
+[package]
+name = "nixvision_core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+nixvision_lib = { path = "../nixvision_lib" }
+opencv = "0.92" 
+image = "0.25"
