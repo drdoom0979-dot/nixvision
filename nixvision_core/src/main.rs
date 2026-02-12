@@ -1,7 +1,8 @@
 mod ui;
 mod commands;
 mod io;
-
+mod config;
+mod pipelines;
 use crate::ui::Interface;
 use crate::commands::CommandManager;
 

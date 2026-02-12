@@ -1,4 +1,12 @@
-use opencv::{imgcodecs, prelude::*, Result};
+use opencv::{
+    imgcodecs, 
+    prelude::*, 
+    Result,
+    videoio::{VideoCapture, CAP_ANY, VideoCaptureTrait},
+    core::Mat,
+};
+
+use std::{thread, time::Duration};
 
 pub struct FrameCapture;
 
@@ -24,6 +32,29 @@ impl FrameCapture{
         }
         
         Ok(frame)
+    }
+
+    pub fn capture_sequence(url: &str, fps: f64, seconds: u64) -> opencv::Result<Vec<Mat>> {
+        let mut cam = VideoCapture::from_file(url, CAP_ANY)?;
+        let mut frames = Vec::new();
+        
+        // Calculamos cuántos frames totales necesitamos
+        let total_frames = (fps * seconds as f64) as usize;
+        // Intervalo de tiempo entre capturas
+        let interval = Duration::from_millis((1000.0 / fps) as u64);
+
+        if cam.is_opened()? {
+            for _ in 0..total_frames {
+                let mut frame = Mat::default();
+                if cam.read(&mut frame)? {
+                    frames.push(frame);
+                }
+                // Esperamos para cumplir con los FPS solicitados
+                thread::sleep(interval);
+            }
+        }
+
+        Ok(frames)
     }
 
 }
