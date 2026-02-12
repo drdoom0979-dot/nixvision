@@ -53,4 +53,13 @@ impl EdgeManager {
         
         Ok(abs_dst) // Retorna la imagen de bordes
     }
+
+    pub fn canny(src: &Mat, low_threshold: f64, high_threshold: f64) -> Result<Mat> {
+        let mut edges = Mat::default();
+        // Canny requiere una imagen en escala de grises[cite: 264].
+        imgproc::canny(src, &mut edges, low_threshold, high_threshold, 3, false)?;
+        Ok(edges)
+    }
+
+
 }

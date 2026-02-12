@@ -6,3 +6,4 @@ pub mod illumination;
 pub mod noise;
 pub mod edges;
 pub mod metrics;
+pub mod contour;
