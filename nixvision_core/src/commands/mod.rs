@@ -5,6 +5,7 @@ use crate::config::settings::{AppConfig,CameraSettings};
 use crate::pipelines::processing::DynamicPipeline;
 
 
+
 pub struct CommandManager;
 
 impl CommandManager {
@@ -12,7 +13,7 @@ impl CommandManager {
         
 
         // 2. Menú de selección
-        let opciones = vec!["Image", "Camera", "Salir"];
+        let opciones = vec!["Image","Detection", "Camera", "Salir"];
         let seleccion = Select::new("--- PANEL DE CONTROL NIXVISION ---", opciones).prompt();
 
         // 3. Match de opciones (Quitamos el uso de &gui)
@@ -23,10 +24,87 @@ impl CommandManager {
             Ok("Camera") => {
                 Self::handle_camera_menu()?;
             }
+            Ok("Detection") =>{
+                let _ = Self::handle_detection_brute_force();
+            }
+
             Ok("Salir") => println!("Saliendo de NixVision..."),
             _ => println!("Operación cancelada."),
+
         }
 
+        Ok(())
+    }
+
+    fn handle_detection_brute_force() -> opencv::Result<()> {
+        // 1. Carga de la imagen original
+        let input_path = Interface::ask_text("> Ruta de la imagen para detección automática:", "limon.jpg");
+        let img = match FrameCapture::load_image(&input_path) {
+            Ok(m) => m,
+            Err(e) => {
+                Interface::error(&format!("No se pudo cargar la imagen: {}", e));
+                return Ok(());
+            }
+        };
+        let base_name = input_path.split('.').next().unwrap_or("resultado");
+
+        Interface::info("🚀 Iniciando NixVision Auto-Tune: Búsqueda Exhaustiva con Métricas...");
+
+        let blur_sizes = [3, 5, 7, 9, 11, 13]; 
+        let canny_ranges = [
+            (10.0, 40.0), (20.0, 60.0), (30.0, 80.0),
+            (50.0, 100.0), (70.0, 150.0), (80.0, 200.0),
+            (40.0, 50.0), (60.0, 70.0), (90.0, 100.0)
+        ];
+        let min_areas = [100.0, 300.0, 500.0, 1000.0, 2000.0, 4000.0];
+
+        let mut total_attempts = 0;
+        let mut success_count = 0;
+
+        for &blur in &blur_sizes {
+            for &(low, high) in &canny_ranges {
+                for &area_threshold in &min_areas {
+                    total_attempts += 1;
+                    
+                    let receta = vec![
+                        (1, 1, 0.0, 0.0),               // Grises
+                        (3, 1, blur as f64, 0.0),       // Blur
+                        (4, 3, low, high),              // Canny
+                        (6, 1, area_threshold, 0.0),    // Contornos/Métricas
+                    ];
+
+                    // 🚀 Procesamiento con retorno de metadatos detallados
+                    let res_obj = DynamicPipeline::process_with_metadata(&img, &receta)?;
+
+                    if res_obj.detected {
+                        success_count += 1;
+                        let out_name = format!("{}_B{}_C{}-{}_A{}.jpg", base_name, blur, low, high, area_threshold);
+                        
+                        FrameCapture::save_image(&res_obj.image, &out_name)?;
+                        
+                        // 📊 REPORTE DETALLADO (Igual al modo manual para tu tabla del Punto 5)
+                        println!("\n✅ Objeto Detectado en Intento [{}/324]:", total_attempts);
+                        println!("   - Archivo: {}", out_name);
+                        println!("   - Área: {:.2} px", res_obj.area);
+                        // Si añadiste perimeter, width y height a tu struct ProcessResult:
+                        println!("   - Perímetro: {:.2} px", res_obj.perimeter);
+                        println!("   - Bounding Box: {}x{} px", res_obj.width, res_obj.height);
+                        println!("--------------------------------------------------");
+                    } else {
+                        print!(".");
+                        use std::io::{self, Write};
+                        io::stdout().flush().unwrap();
+                    }
+                }
+            }
+        }
+
+        println!("\n");
+        Interface::success(&format!(
+            "¡Auto-Tune completado! Se analizaron {} combinaciones. {} imágenes con métricas generadas.", 
+            total_attempts, success_count
+        ));
+        
         Ok(())
     }
 
